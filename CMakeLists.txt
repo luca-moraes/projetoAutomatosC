@@ -3,4 +3,4 @@ project(projetoAutomatos C)
 
 set(CMAKE_C_STANDARD 90)
 
-add_executable(projetoAutomatos main.c)
+add_executable(projetoAutomatos EP1.c)
