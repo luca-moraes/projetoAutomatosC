@@ -1,4 +1,14 @@
 #include <stdio.h>
+#include <stdbool.h>
+
+typedef struct States State;
+
+struct States{
+    char name[10];
+    State *transictionA;
+    struct States *transictionB;
+    bool finalState;
+} state;
 
 int main() {
     char word[10];
@@ -17,7 +27,7 @@ int main() {
 
     int j;
     for (j = 0; j < kQuantWords; ++j) {
-        printf("Test word: %s\n", testWords[j]);
+        printf("Test word %d: %s\n", j, testWords[j]);
     }
 
     //printf("Hello, World!\n");
