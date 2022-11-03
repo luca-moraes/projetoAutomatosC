@@ -6,7 +6,19 @@ int main() {
 
     scanf("%s \n %d", word, &kQuantWords);
 
-    printf("Word: %s\nNum: %d", word, kQuantWords);
+    char testWords[kQuantWords][200];
+
+    int i;
+    for (i = 0; i < kQuantWords; ++i) {
+        scanf("%s", testWords[i]);
+    }
+
+    printf("Word: %s\nNum: %d\n", word, kQuantWords);
+
+    int j;
+    for (j = 0; j < kQuantWords; ++j) {
+        printf("Test word: %s\n", testWords[j]);
+    }
 
     //printf("Hello, World!\n");
     return 0;
