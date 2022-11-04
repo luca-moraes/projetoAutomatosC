@@ -17,8 +17,27 @@ void mountAutomaton(State *automaton[10], char *word[10], int wordSize){
     for(i = 0; i < wordSize; i++){
         State newState;
 
-        *newState.name = *word[0];
-        *automaton[i] = newState;
+        char stateName[i+1];
+
+        if(i == 0){
+            *stateName = 'e';
+        }
+        else{
+            *stateName = *word[i];
+        }
+
+        *newState.name = stateName;
+
+//        if(*word[i] == 'a'){
+//            newState.transictions[1] = &newState;
+//        }
+
+        automaton[i] = &newState;
+    }
+
+    int j;
+    for (j; j < wordSize; j++) {
+        printf("State name: %s\n", *automaton[j]->name);
     }
 }
 
@@ -38,19 +57,21 @@ int main() {
     // scanf(fgets(word, 10, stdin), word);
     scanf("%s \n %d", word, &kQuantWords);
 
-    char testWords[kQuantWords][200+1];
+//    char testWords[kQuantWords][200+1];
+//
+//    int i;
+//    for (i = 0; i < kQuantWords; ++i) {
+//        scanf("%s", testWords[i]);
+//    }
+//
+//    printf("Word: %s\nNum: %d\n", word, kQuantWords);
 
-    int i;
-    for (i = 0; i < kQuantWords; ++i) {
-        scanf("%s", testWords[i]);
-    }
+//    int j;
+//    for (j = 0; j < kQuantWords; ++j) {
+//        printf("Test word %d: %s\n", j, testWords[j]);
+//    }
 
-    printf("Word: %s\nNum: %d\n", word, kQuantWords);
-
-    int j;
-    for (j = 0; j < kQuantWords; ++j) {
-        printf("Test word %d: %s\n", j, testWords[j]);
-    }
+    mountAutomaton(automaton, word, 4);
 
     // printf("Hello, World!\n");
     return 0;
