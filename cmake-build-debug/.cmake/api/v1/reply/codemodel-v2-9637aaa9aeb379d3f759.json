@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug",
-		"source" : "/home/eu/Documentos/automatos/projetoAutomatos"
+		"build" : "/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug",
+		"source" : "/home/lmoraes/Desktop/projetoAutomatos"
 	},
 	"version" : 
 	{
