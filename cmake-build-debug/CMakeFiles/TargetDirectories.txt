@@ -1,3 +1,3 @@
-/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/CMakeFiles/projetoAutomatos.dir
-/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/CMakeFiles/projetoAutomatos.dir
+/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/CMakeFiles/rebuild_cache.dir

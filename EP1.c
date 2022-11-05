@@ -1,12 +1,12 @@
 #include <stdbool.h>
 #include <stdio.h>
- #include <stdlib.h>
+//#include <stdlib.h>
 #include <string.h>
 
 typedef struct States State;
 
 struct States {
-    char name[10];
+    char name[10+1];
     // State *transictionA;
     // struct States *transictionB;
     State *transictions[2];
@@ -15,17 +15,20 @@ struct States {
 
 void mountAutomaton(State *automaton, char *word, int wordSize){
     int i;
-    for(i = 0; i < wordSize; i++){
-        char stateName[i+1];
+    State *automatonEnd = &automaton[0];
 
+    for(i = 0; i < wordSize+1; i++){
+        automaton = &automaton[i];
+//        automaton->name.
         if(i == 0){
-            *stateName = 'e';
+            strncpy(automaton->name, "eps\0", 4);
         }
         else{
-            *stateName = word[i];
+            strncpy(automaton->name, word,i);
+            strcpy(&automaton->name[i], "\0");
+//            strncpy(automaton->name, strcat(word, "\0"),(i+1));
+//            strncat(automaton->name, word,i);
         }
-
-        strcpy(automaton[i].name, stateName);
 
 //        if(*word[i] == 'a'){
 //            newState.transictions[1] = &newState;
@@ -33,18 +36,18 @@ void mountAutomaton(State *automaton, char *word, int wordSize){
     }
 
     int j;
-    for (j; j < wordSize; j++) {
-        printf("State name: %s\n", automaton[j].name);
+    automaton = automatonEnd;
+    for (j = 0; j < wordSize+1; j++) {
+        automaton = &automaton[j];
+        printf("State name: %s\n", automaton->name);
     }
 }
 
 int main() {
-    char word[10
-            // +1
-    ];
+    char word[10+1];
 //     char quantWords[4+1];
     int kQuantWords = 0;
-    State automaton[10];
+    State automaton[10+1];
 
     //TODO: jogar a entrada no buffer com tamanho antes da variavel;
 
@@ -71,7 +74,7 @@ int main() {
 //        printf("Test word %d: %s\n", j, testWords[j]);
 //    }
 
-    mountAutomaton(automaton, word, 4);
+    mountAutomaton(automaton, word, strlen(word));
 
     // printf("Hello, World!\n");
     return 0;

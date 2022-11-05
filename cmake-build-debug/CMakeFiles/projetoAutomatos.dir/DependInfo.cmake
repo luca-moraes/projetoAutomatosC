@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/lmoraes/Desktop/projetoAutomatos/EP1.c" "CMakeFiles/projetoAutomatos.dir/EP1.c.o" "gcc" "CMakeFiles/projetoAutomatos.dir/EP1.c.o.d"
+  "/home/eu/Documentos/automatos/projetoAutomatos/EP1.c" "CMakeFiles/projetoAutomatos.dir/EP1.c.o" "gcc" "CMakeFiles/projetoAutomatos.dir/EP1.c.o.d"
   )
 
 # Targets to which this target links.

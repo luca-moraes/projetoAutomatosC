@@ -8,78 +8,78 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug"/>
+				<Option working_dir="/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="projetoAutomatos">
-				<Option output="/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/projetoAutomatos" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug"/>
+				<Option output="/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/projetoAutomatos" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.2.0/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.2.0/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 projetoAutomatos"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 projetoAutomatos"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="projetoAutomatos/fast">
-				<Option output="/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/projetoAutomatos" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug"/>
+				<Option output="/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/projetoAutomatos" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.2.0/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/12.2.0/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 projetoAutomatos/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 projetoAutomatos/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug"/>
+				<Option working_dir="/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug"/>
+				<Option working_dir="/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lmoraes/Desktop/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/eu/Documentos/automatos/projetoAutomatos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/lmoraes/Desktop/projetoAutomatos/EP1.c">
+		<Unit filename="/home/eu/Documentos/automatos/projetoAutomatos/EP1.c">
 			<Option target="projetoAutomatos"/>
 		</Unit>
-		<Unit filename="/home/lmoraes/Desktop/projetoAutomatos/CMakeLists.txt">
+		<Unit filename="/home/eu/Documentos/automatos/projetoAutomatos/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
