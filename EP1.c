@@ -13,31 +13,31 @@ struct States {
     bool finalState;
 } state;
 
-int numberOfEquivalents(){
-    char w1[6] = "ababa\0";
-    char w2[6] = "abab\0";
+int numberOfEquivalents(char *nextWord, char *stateNameWord){
+//    nextWord = "ababa\0";
+//    stateNameWord = "abab\0";
 
-    char tempW1[6];
-    char tempW2[6];
+    char tempActualWord[sizeof(nextWord)];
+    char tempStateNameWord[sizeof (stateNameWord)];
 
-    int k, count = 0, leftSentry = strlen(w1)-1;
+    int k, count = 0, leftSentry = strlen(nextWord) - 1;
 
-    strcpy(&tempW1[0], &w1[leftSentry]);
-    strcpy(&tempW1[1], "\0");
+    strcpy(&tempActualWord[0], &nextWord[leftSentry]);
+    strcpy(&tempActualWord[1], "\0");
 
-    strcpy(&tempW2[0], &w2[0]);
-    strcpy(&tempW2[1], "\0");
+    strcpy(&tempStateNameWord[0], &stateNameWord[0]);
+    strcpy(&tempStateNameWord[1], "\0");
 
-    for(k = 0; k < strlen(w2); k++){
-        if(strcmp(tempW1, tempW2) == 0){
-            count = strlen(tempW2);
+    for(k = 0; k < strlen(stateNameWord); k++){
+        if(strcmp(tempActualWord, tempStateNameWord) == 0){
+            count = strlen(tempStateNameWord);
         }
 
-        strncpy(tempW2, w2, k+2);
-        strcpy(&tempW2[k+2], "\0");
+        strncpy(tempStateNameWord, stateNameWord, k + 2);
+        strcpy(&tempStateNameWord[k + 2], "\0");
 
-        strncpy(tempW1, w1+(leftSentry-(k+1)), (k+2));
-        strcpy(&tempW1[k+2], "\0");
+        strncpy(tempActualWord, nextWord + (leftSentry - (k + 1)), (k + 2));
+        strcpy(&tempActualWord[k + 2], "\0");
     }
 
     return count;
@@ -46,6 +46,7 @@ int numberOfEquivalents(){
 void mountAutomaton(State *automaton, char *word, int wordSize){
     int i;
     State *firstState = &automaton[0];
+    char wordNextTransition[sizeof(word)];
 
     for(i = 0; i < wordSize+1; i++){
         automaton = &automaton[i];
@@ -60,12 +61,16 @@ void mountAutomaton(State *automaton, char *word, int wordSize){
             strncpy(automaton->name, word,i);
             strcpy(&automaton->name[i], "\0");
 
-            automaton->transictions[0] = word[i] == 'a' ? &automaton[i+1] : firstState;
-            automaton->transictions[1] = word[i] == 'b' ? &automaton[i+1] : firstState;
+            strncpy(wordNextTransition, word, i+1);
+            strcpy(&wordNextTransition[i+1], "\0");
+
+            automaton->transictions[0] = word[i] == 'a' ? &automaton[i+1] : &firstState[numberOfEquivalents(wordNextTransition, automaton->name)];
+            automaton->transictions[1] = word[i] == 'b' ? &automaton[i+1] : &firstState[numberOfEquivalents(wordNextTransition, automaton->name)];
 
             automaton->finalState = i == wordSize ? true : false;
 //            strncpy(automaton->name, strcat(word, "\0"),(i+1));
 //            strncat(automaton->name, word,i);
+//            sprintf()
         }
 //        if(*word[i] == 'a'){
 //            newState.transictions[1] = &newState;
@@ -118,7 +123,7 @@ int main() {
 
     mountAutomaton(automaton, word, strlen(word));
 
-    printf("Diff: %d", numberOfEquivalents());
+//    printf("Diff: %d", numberOfEquivalents(word, word));
     // printf("Hello, World!\n");
     return 0;
 }
