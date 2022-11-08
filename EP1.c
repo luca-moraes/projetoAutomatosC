@@ -56,13 +56,33 @@ void mountAutomaton(State *automaton, char *word, int wordSize){
             automaton->transictions[0] = word[i] == 'a' ? &automaton[i+1] : &automaton[i];
             automaton->transictions[1] = word[i] == 'b' ? &automaton[i+1] : &automaton[i];
             automaton->finalState = false;
+        }else
+        if(i == wordSize){
+            strncpy(automaton->name, word,i);
+            strcpy(&automaton->name[i], "\0");
+
+            automaton->transictions[0] = automaton;
+            automaton->transictions[1] = automaton;
+
+            automaton->finalState = true;
         }
         else{
             strncpy(automaton->name, word,i);
             strcpy(&automaton->name[i], "\0");
 
-            strncpy(wordNextTransition, word, i+1);
-            strcpy(&wordNextTransition[i+1], "\0");
+            strncpy(wordNextTransition, word, i);
+            if(word[i] == 'a'){
+                strcpy(&wordNextTransition[i], "b\0");
+            }else{
+                strcpy(&wordNextTransition[i], "a\0");
+            }
+
+//            strncpy(wordNextTransition, word, i);
+//            strcpy(&wordNextTransition[i+1], "\0");
+//
+//            sprintf(wordNextTransition,"%s%c%c", wordNextTransition, 'a', "\0");
+//
+//            wordNextTransition =
 
             automaton->transictions[0] = word[i] == 'a' ? &automaton[i+1] : &firstState[numberOfEquivalents(wordNextTransition, automaton->name)];
             automaton->transictions[1] = word[i] == 'b' ? &automaton[i+1] : &firstState[numberOfEquivalents(wordNextTransition, automaton->name)];
