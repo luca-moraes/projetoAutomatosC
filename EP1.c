@@ -48,8 +48,8 @@ void mountAutomaton(State *automaton, char *word, int wordSize){
     State *firstState = &automaton[0];
     char wordNextTransition[sizeof(word)];
 
+    automaton = firstState;
     for(i = 0; i < wordSize+1; i++){
-        automaton = &automaton[i];
 //        automaton->name.
         if(i == 0){
             strncpy(automaton->name, "eps\0", 4);
@@ -95,26 +95,27 @@ void mountAutomaton(State *automaton, char *word, int wordSize){
 //        if(*word[i] == 'a'){
 //            newState.transictions[1] = &newState;
 //        }
+        automaton = word[i] == 'a' ? automaton->transictions[0] : automaton->transictions[1];
     }
 
-    int j;
-    automaton = firstState;
-    for (j = 0; j < wordSize+1; j++) {
-        automaton = &automaton[j];
-        printf("State name: %s, A: %s, B: %s, FINAL: %d\n",
-           automaton->name,
-           automaton->transictions[0]->name,
-           automaton->transictions[1]->name,
-           automaton->finalState
-       );
-    }
+//    int j;
+//    automaton = &firstState;
+//    for (j = 0; j < wordSize+1; j++) {
+//        automaton = &automaton[j];
+//        printf("State name: %s, A: %s, B: %s, FINAL: %d\n",
+//           automaton->name,
+//           automaton->transictions[0]->name,
+//           automaton->transictions[1]->name,
+//           automaton->finalState
+//       );
+//    }
 }
 
 int main() {
     char word[10+1];
 //     char quantWords[4+1];
     int kQuantWords = 0;
-    State automaton[10+1];
+    State automaton[(10+1)];
 
     //TODO: jogar a entrada no buffer com tamanho antes da variavel;
 
