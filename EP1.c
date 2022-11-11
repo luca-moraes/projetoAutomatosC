@@ -97,18 +97,34 @@ void mountAutomaton(State *automaton, char *word, int wordSize){
 //        }
         automaton = word[i] == 'a' ? automaton->transictions[0] : automaton->transictions[1];
     }
+}
 
-//    int j;
-//    automaton = &firstState;
-//    for (j = 0; j < wordSize+1; j++) {
-//        automaton = &automaton[j];
-//        printf("State name: %s, A: %s, B: %s, FINAL: %d\n",
-//           automaton->name,
-//           automaton->transictions[0]->name,
-//           automaton->transictions[1]->name,
-//           automaton->finalState
-//       );
-//    }
+void printAutomaton(State *automaton, char *word, int wordSize){
+    int j;
+    State *firstState = &automaton[0];
+    automaton = firstState;
+
+    for (j = 0; j < wordSize + 1; j++) {
+        printf("State name: %-11s - Transiction A: %-11s - Transiction B: %-11s - FINAL: %d\n",
+               automaton->name,
+               automaton->transictions[0]->name,
+               automaton->transictions[1]->name,
+               automaton->finalState
+        );
+        automaton = word[j] == 'a' ? automaton->transictions[0] : automaton->transictions[1];
+    }
+}
+
+bool checkWordValidity(State *automaton, char *testWord, int testWordSize){
+    int k;
+    State *firstState = &automaton[0];
+    automaton = firstState;
+
+    for(k = 0; k < testWordSize + 1; k++){
+        automaton = testWord[k] == 'a' ? automaton->transictions[0] : automaton->transictions[1];
+    }
+
+    return automaton->finalState;
 }
 
 int main() {
@@ -121,20 +137,20 @@ int main() {
 
 //     fgets(word, sizeof(word)-1, stdin);
 
-
 //     fgets(quantWords, sizeof(quantWords)-1, stdin);
 //     kQuantWords = atoi(quantWords);
 
-    // scanf(fgets(word, 10, stdin), word);
+// scanf(fgets(word, 10, stdin), word);
+
     scanf("%s \n %d", word, &kQuantWords);
 
-//    char testWords[kQuantWords][200+1];
-//
-//    int i;
-//    for (i = 0; i < kQuantWords; ++i) {
-//        scanf("%s", testWords[i]);
-//    }
-//
+    char testWords[kQuantWords][200+1];
+    int i;
+
+    for (i = 0; i < kQuantWords; ++i) {
+        scanf("%s", testWords[i]);
+    }
+
     printf("Word: %s\nNum: %d\n", word, kQuantWords);
 
 //    int j;
@@ -143,6 +159,10 @@ int main() {
 //    }
 
     mountAutomaton(automaton, word, strlen(word));
+    printAutomaton(automaton, word, strlen(word));
+    checkWordValidity(automaton, testWords[0], strlen(testWords[0])) ? printf("true") : printf("false");
+
+//    printf("%d", test);
 
 //    printf("Diff: %d", numberOfEquivalents(word, word));
     // printf("Hello, World!\n");
