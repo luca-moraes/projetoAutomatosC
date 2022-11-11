@@ -84,8 +84,8 @@ void mountAutomaton(State *automaton, char *word, int wordSize){
 //
 //            wordNextTransition =
 
-            automaton->transictions[0] = word[i] == 'a' ? &automaton[i+1] : &firstState[numberOfEquivalents(wordNextTransition, automaton->name)];
-            automaton->transictions[1] = word[i] == 'b' ? &automaton[i+1] : &firstState[numberOfEquivalents(wordNextTransition, automaton->name)];
+            automaton->transictions[0] = word[i] == 'a' ? &firstState[i+1] : &firstState[numberOfEquivalents(wordNextTransition, automaton->name)];
+            automaton->transictions[1] = word[i] == 'b' ? &firstState[i+1] : &firstState[numberOfEquivalents(wordNextTransition, automaton->name)];
 
             automaton->finalState = i == wordSize ? true : false;
 //            strncpy(automaton->name, strcat(word, "\0"),(i+1));
