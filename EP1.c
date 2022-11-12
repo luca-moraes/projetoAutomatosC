@@ -120,7 +120,8 @@ bool checkWordValidity(State *automaton, char *testWord, int testWordSize){
     State *firstState = &automaton[0];
     automaton = firstState;
 
-    for(k = 0; k < testWordSize + 1; k++){
+    // TODO: wordsize ou wordsize + 1 ?
+    for(k = 0; k < testWordSize; k++){
         automaton = testWord[k] == 'a' ? automaton->transictions[0] : automaton->transictions[1];
     }
 
@@ -160,7 +161,9 @@ int main() {
 
     mountAutomaton(automaton, word, strlen(word));
     printAutomaton(automaton, word, strlen(word));
-    checkWordValidity(automaton, testWords[0], strlen(testWords[0])) ? printf("true") : printf("false");
+    for(i = 0; i < kQuantWords; i++) {
+        checkWordValidity(automaton, testWords[i], strlen(testWords[i])) ? printf("true\n") : printf("false\n");
+    }
 
 //    printf("%d", test);
 
