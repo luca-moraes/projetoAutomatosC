@@ -1,24 +1,18 @@
 #include <stdbool.h>
 #include <stdio.h>
-//#include <stdlib.h>
 #include <string.h>
 
 typedef struct States State;
 
 struct States {
     char name[10+1];
-    // State *transictionA;
-    // struct States *transictionB;
     State *transictions[2];
     bool finalState;
-} state;
+};
 
 int numberOfEquivalents(char *nextWord, char *stateNameWord){
-//    nextWord = "ababa\0";
-//    stateNameWord = "abab\0";
-
-    char tempActualWord[sizeof(nextWord)];
-    char tempStateNameWord[sizeof (stateNameWord)];
+    char tempActualWord[strlen(nextWord)];
+    char tempStateNameWord[strlen(stateNameWord)];
 
     int k, count = 0, leftSentry = strlen(nextWord) - 1;
 
@@ -46,11 +40,10 @@ int numberOfEquivalents(char *nextWord, char *stateNameWord){
 void mountAutomaton(State *automaton, char *word, int wordSize){
     int i;
     State *firstState = &automaton[0];
-    char wordNextTransition[sizeof(word)];
+    char wordWrongTransition[strlen(word)];
 
     automaton = firstState;
     for(i = 0; i < wordSize+1; i++){
-//        automaton->name.
         if(i == 0){
             strncpy(automaton->name, "eps\0", 4);
             automaton->transictions[0] = word[i] == 'a' ? &automaton[i+1] : &automaton[i];
@@ -70,31 +63,19 @@ void mountAutomaton(State *automaton, char *word, int wordSize){
             strncpy(automaton->name, word,i);
             strcpy(&automaton->name[i], "\0");
 
-            strncpy(wordNextTransition, word, i);
+            strncpy(wordWrongTransition, word, i);
             if(word[i] == 'a'){
-                strcpy(&wordNextTransition[i], "b\0");
+                strcpy(&wordWrongTransition[i], "b\0");
             }else{
-                strcpy(&wordNextTransition[i], "a\0");
+                strcpy(&wordWrongTransition[i], "a\0");
             }
 
-//            strncpy(wordNextTransition, word, i);
-//            strcpy(&wordNextTransition[i+1], "\0");
-//
-//            sprintf(wordNextTransition,"%s%c%c", wordNextTransition, 'a', "\0");
-//
-//            wordNextTransition =
-
-            automaton->transictions[0] = word[i] == 'a' ? &firstState[i+1] : &firstState[numberOfEquivalents(wordNextTransition, automaton->name)];
-            automaton->transictions[1] = word[i] == 'b' ? &firstState[i+1] : &firstState[numberOfEquivalents(wordNextTransition, automaton->name)];
+            automaton->transictions[0] = word[i] == 'a' ? &firstState[i+1] : &firstState[numberOfEquivalents(wordWrongTransition, automaton->name)];
+            automaton->transictions[1] = word[i] == 'b' ? &firstState[i+1] : &firstState[numberOfEquivalents(wordWrongTransition, automaton->name)];
 
             automaton->finalState = i == wordSize ? true : false;
-//            strncpy(automaton->name, strcat(word, "\0"),(i+1));
-//            strncat(automaton->name, word,i);
-//            sprintf()
         }
-//        if(*word[i] == 'a'){
-//            newState.transictions[1] = &newState;
-//        }
+
         automaton = word[i] == 'a' ? automaton->transictions[0] : automaton->transictions[1];
     }
 }
@@ -105,11 +86,10 @@ void printAutomaton(State *automaton, char *word, int wordSize){
     automaton = firstState;
 
     for (j = 0; j < wordSize + 1; j++) {
-        printf("State name: %-11s - Transiction A: %-11s - Transiction B: %-11s - FINAL: %d\n",
+        printf("%s %s %s\n",
                automaton->name,
                automaton->transictions[0]->name,
-               automaton->transictions[1]->name,
-               automaton->finalState
+               automaton->transictions[1]->name
         );
         automaton = word[j] == 'a' ? automaton->transictions[0] : automaton->transictions[1];
     }
@@ -120,7 +100,6 @@ bool checkWordValidity(State *automaton, char *testWord, int testWordSize){
     State *firstState = &automaton[0];
     automaton = firstState;
 
-    // TODO: wordsize ou wordsize + 1 ?
     for(k = 0; k < testWordSize; k++){
         automaton = testWord[k] == 'a' ? automaton->transictions[0] : automaton->transictions[1];
     }
@@ -130,18 +109,8 @@ bool checkWordValidity(State *automaton, char *testWord, int testWordSize){
 
 int main() {
     char word[10+1];
-//     char quantWords[4+1];
     int kQuantWords = 0;
     State automaton[(10+1)];
-
-    //TODO: jogar a entrada no buffer com tamanho antes da variavel;
-
-//     fgets(word, sizeof(word)-1, stdin);
-
-//     fgets(quantWords, sizeof(quantWords)-1, stdin);
-//     kQuantWords = atoi(quantWords);
-
-// scanf(fgets(word, 10, stdin), word);
 
     scanf("%s \n %d", word, &kQuantWords);
 
@@ -152,22 +121,10 @@ int main() {
         scanf("%s", testWords[i]);
     }
 
-    printf("Word: %s\nNum: %d\n", word, kQuantWords);
-
-//    int j;
-//    for (j = 0; j < kQuantWords; ++j) {
-//        printf("Test word %d: %s\n", j, testWords[j]);
-//    }
-
     mountAutomaton(automaton, word, strlen(word));
     printAutomaton(automaton, word, strlen(word));
     for(i = 0; i < kQuantWords; i++) {
-        checkWordValidity(automaton, testWords[i], strlen(testWords[i])) ? printf("true\n") : printf("false\n");
+        checkWordValidity(automaton, testWords[i], strlen(testWords[i])) ? printf("1\n") : printf("0\n");
     }
-
-//    printf("%d", test);
-
-//    printf("Diff: %d", numberOfEquivalents(word, word));
-    // printf("Hello, World!\n");
     return 0;
 }
